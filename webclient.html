@@ -168,6 +168,18 @@
 	value.bind=&quot;name&quot;&gt;&lt;/td&gt;
 &lt;/tr&gt;</code></pre>
 					</section>
+					
+					<section>
+					<h2>ViewModel</h2>
+					<pre><code>@autoinject
+export class CompletedJobs {
+    name: string;
+    
+    reset(){
+        this.name = null;
+    }
+}</code></pre>
+					</section>
 								
 					<section>
 					<h2>Service</h2>
@@ -176,12 +188,11 @@ export class CompletedJobsService {
     constructor(private httpClient: HttpClient){
     }
 
-	loadWorkitemTypes() : Promise<any> {
+	loadWorkitemTypes() : Promise&lt;any&gt; {
         return this.httpClient.fetch('/batch/workitemTypes')
             .then(response => response.json());
     }
-}
-</code></pre>
+}</code></pre>
 					</section>
 					
 					<section>
@@ -204,7 +215,7 @@ export class CompletedJobsService {
 						<h2>Projekt Fazit</h2>
 						<ul>
 							<li>Architektur definiert</li>
-							<li>Web-Client als Prototyp implementiert</li>
+							<li>Prototyp implementiert</li>
 							<li>Authentifizierung gelöst</li>
 							<li>Entwicklungsumgebung aufgesetzt</li>
 							<li>Batch als Beispielanwendung implementiert</li>
@@ -219,6 +230,10 @@ export class CompletedJobsService {
 							<li>Code - Build - Test Zyklus</li>
 							<li>Viele kleine Tools</li>
 						</ul>
+					</section>
+					<section>
+						<h2>November 2007</h2>
+						<img src="img/forbes.png" style="border: 0px; height: 500px;" />
 					</section>
 					<section>
 						<h2>Ausblick</h2>
