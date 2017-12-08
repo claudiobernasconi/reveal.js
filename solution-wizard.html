@@ -1,0 +1,162 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Solution Wizard</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/white.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<img src="img/wizard.png" style="background:#FFFFFF; width:200px; border:0px; box-shadow:none;" />
+					<h1>Solution Wizard</h1>
+                    <br>
+                    <p>
+                        <h3>Claudio Bernasconi</h3>
+						8. Dezember 2017
+                    </p>
+				</section>
+				
+				<section data-background="#07A">
+					<h3>Agenda</h3>
+					<ul>
+						<li>Problemstellung & Idee</li>
+						<li>Lösung & Challenges</li>	
+						<li>Fazit</li>
+					</ul>
+				</section>
+				
+				<section>
+					<section data-background="#07A">
+						<h2>Problemstellung & Idee</h2>
+					</section>
+					<section>
+						<h2>Problemstellung</h2>
+						<ul>
+							<li>Programmänderungen innerhalb von grossen Solutions benötigen zu viel Zeit</li>
+							<li>Funnel funktioniert in Visual Studio 2017 nicht</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Idee</h2>
+						<p>On-Demand Erstellung einer Solution, <br />welche die gwünschten Projekte enthält.</p>
+						<img src="img/solution-wizard-kontext.png" style="border: 0px; height: 400px;" />
+					</section>
+				</section>
+				
+				<section>
+					<section data-background="#07A">
+						<h2>Lösung & Challenges</h2>
+					</section>
+					<section>
+						<h2>Prozess</h2>
+						<img src="img/solution-wizard-process.png" style="border: 0px; height: 550px;" />
+					</section>
+					<section>
+						<h2>Projekte ermitteln</h2>
+						<img src="img/project-parser.png" style="border: 0px; height: 550px;" />
+					</section>
+					<section>
+						<h2>Gut, aber...</h2>
+						<p>... langsam!</p>
+						<img src="img/snail.jpg" style="border: 0px; height: 250px;" />
+						<p>Erstellung <i>St1dial</i> aus <i>Nest.Client.sln</i> dauert &gt;<b>15</b> Minuten</p>
+					</section>
+					<section>
+						<h2>Warum?</h2>
+						<img src="img/tree.png" style="border: 0px; height: 200px;" />
+						<p>Für jedes Projekt wird rekursiv jede Projektreferenz analyisiert</p>
+						<p>Bei 150 Projekten mit jeweils 20 Referenzen sind dies insgesamt <b>???</b> Knoten</p>
+					</section>
+					<section>
+						<h2>Heuristik</h2>
+						<img src="img/clue.png" style="border: 0px; height: 200px;" />
+						<ul>
+							<li>Jedes Projekt nur einmal analyisieren</li>
+							<li>Maximal so viele Analyseschritte, wie es Projekte in der Solution gibt</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Ergebnis</h2>
+						<img src="img/shuttle.jpg" style="border: 0px; height: 200px;" />
+						<p>Erstellung <i>St1dial</i> aus <i>Nest.Client.sln</i> dauert &lt;<b>100</b> ms</p>
+					</section>
+				</section>
+				
+				<section>
+					<section data-background="#07A">
+						<h2>Fazit</h2>
+					</section>
+					<section>
+						<h2>Wenig Aufwand...</h2>
+						<p>... grosser Ertrag.</p>
+						<p>Gute Tools für den Alltag zahlen sich aus.</p>
+					</section>
+					<section>
+						<h2>Komplexität reduzieren</h2>
+						<p>Vermeitlich schwierige Problemstellungen lassen sich mit dem richtigen Blickwinkel vereinfachen</p>
+					</section>
+					<section>
+						<h2>Rekursion vs. Heuristik</h2>
+						<p>Mit der richtigen Heuristik lassen sich vermeintlich komplexe Rekursionen vereinfachen</p>
+					</section>
+					<section>
+						<h2>First-Try Codequalität</h2>
+						<p>Auch vermeintlicher Wegwerfcode kann im ersten Versuch sauber geschrieben werden, wenn wenige grundlegende Empfehlungen befolgt werden</p>
+					</section>
+					<section>
+						<h2>Die Konsole</h2>
+						<p>Konsolenanwendungen können sehr schnell geschrieben werden und erledigen einen Task auch heute noch sehr effizient</p>
+					</section>
+				</section>
+				
+				<section>
+					<section data-background="#07A">
+						<h2>Questions?</h2>
+					</section>
+				</section>
+				
+				<section>
+					<section data-background="#07A">
+						<h2>Have a Beer!</h2>
+						<img src="img/beer.png" style="border: 0px; height: 400px; box-shadow:none;" />
+					</section>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
